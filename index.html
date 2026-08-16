@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Validación de Certificado</title>
+  <style>
+    :root{
+      --azul:#173c68;
+      --azul2:#0f2d50;
+      --verde:#2f8f57;
+      --fondo:#f4f6f9;
+      --texto:#263238;
+      --gris:#6b7280;
+      --borde:#d9dee7;
+      --blanco:#ffffff;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--fondo);
+      color:var(--texto);
+    }
+
+    .demo{
+    background:<img src:"Teléfono/Pictures/Screenshots/Screenshot_20260816_120754_com_android_chrome_CustomTabActivity_edit_18123875751887.jpg"></image>
+      color:#241f00;
+      text-align:center;
+      padding:8px 12px;
+      font-weight:700;
+      letter-spacing:.8px;
+      font-size:13px;
+    }
+
+    header{
+      color:white;
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,.12);
+    }
+
+    .brand{
+      width:min(920px, 94%);
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.85);
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      font-size:13px;
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:19px;
+      font-weight:600;
+    }
+
+    .brand small{
+      display:block;
+      margin-top:4px;
+      opacity:.8;
+    }
+
+    main{
+      width:min(920px,94%);
+      margin:42px auto 70px;
+    }
+
+    .card{
+      background:var(--blanco);
+      border-radius:10px;
+      box-shadow:0 6px 24px rgba(33,43,54,.10);
+      overflow:hidden;
+      border:1px solid #edf0f4;
+    }
+
+    .status{
+      padding:34px 34px 26px;
+      text-align:center;
+      border-bottom:1px solid #edf0f4;
+    }
+
+    .check{
+      width:64px;
+      height:64px;
+      margin:0 auto 15px;
+      border-radius:50%;
+      background:#e7f5ec;
+      color:var(--verde);
+      display:grid;
+      place-items:center;
+      font-size:34px;
+      font-weight:bold;
+    }
+
+    .status h2{
+      margin:0 0 10px;
+      color:var(--verde);
+      font-size:25px;
+    }
+
+    .status p{
+      margin:0;
+      color:var(--gris);
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    .section{
+      padding:30px 34px 34px;
+    }
+
+    .section h3{
+      margin:0 0 22px;
+      color:var(--azul);
+      font-size:20px;
+      border-bottom:2px solid var(--azul);
+      padding-bottom:10px;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:12px;
+      padding:13px 0;
+      border-bottom:1px solid #eef1f5;
+    }
+
+    .row:last-child{border-bottom:0}
+
+    .label{
+      font-weight:700;
+      color:#46505c;
+    }
+
+    .value{
+      color:#202833;
+    }
+
+    .controls{
+      margin-top:24px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    button{
+      border:0;
+      border-radius:6px;
+      padding:11px 17px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .primary{
+      background:var(--azul);
+      color:white;
+    }
+
+    .secondary{
+      background:#e8edf3;
+      color:#263238;
+    }
+
+    .editor{
+      display:none;
+      margin-top:22px;
+      padding:22px;
+      border-radius:8px;
+      background:#f8fafc;
+      border:1px solid var(--borde);
+    }
+
+    .editor.show{display:block}
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .field.full{grid-column:1/-1}
+
+    label{
+      font-size:13px;
+      font-weight:700;
+      color:#4a5562;
+    }
+
+    input, select{
+      width:100%;
+      border:1px solid #cfd6df;
+      border-radius:6px;
+      padding:10px 11px;
+      font-size:14px;
+      background:white;
+    }
+
+    footer{
+      text-align:center;
+      color:#7a8491;
+      font-size:12px;
+      padding:20px;
+    }
+
+    @media(max-width:650px){
+      .row{grid-template-columns:1fr;gap:4px}
+      .form-grid{grid-template-columns:1fr}
+      .section,.status{padding-left:22px;padding-right:22px}
+      main{margin-top:24px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+      <img src="https://portal.colegiodepilotos.org/assets/images/brand/logo-white.png" alt="Logo">
+    <div class="brand">
+      <div>
+        <h1></h1>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <section class="status">
+        <div class="check">✓</div>
+        <h2 id="estadoTitulo">Certificado válido</h2>
+        <p id="estadoTexto">
+          El certificado <strong id="estadoCertificado">CPAM-HSE-06-2026-1257-D</strong>
+          es auténtico.
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>Certificado</h3>
+
+        <div class="row">
+          <div class="label">Número de certificado:</div>
+          <div class="value" id="vCertificado">CPAM-HSE-06-2026-1257-D</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Nombre:</div>
+          <div class="value" id="vNombre">Luis Alberto Pérez Paz</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Fecha de evaluación:</div>
+          <div class="value" id="vEvaluacion">07-04-2026</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Vigencia:</div>
+          <div class="value" id="vVigencia">01-04-2032</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Nivel:</div>
+          <div class="value" id="vNivel">4</div>
+        </div>
+
+</body>
+</html>
